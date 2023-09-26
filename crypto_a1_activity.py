@@ -4,6 +4,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import hashes
 import base64
 import sys
+import hashlib
 # if you get an error on the above line, you might need to run 
 # pip install INSERT_LIBRARY_NAME or install the library another way.
 
@@ -24,11 +25,13 @@ def encrypt_file(input_filename, output_filename, key):
     fernet = Fernet(key)
     with open(input_filename, 'rb') as file:
       raw_file = file.read()
+      file.close()
     encrypted_contents = fernet.encrypt(raw_file)
     #store the encrypted contents in another file who's name
     #is stored in output_filename
     with open(output_filename, 'wb') as file:
          file.write(encrypted_contents)
+         file.close()
     #https://cryptography.io/en/latest/fernet/
     return encrypted_contents
 
@@ -54,12 +57,18 @@ def decrypt_file(input_filename, output_filename, key = ""):
 
 def generate_hash(input_filename, output_filename, key = ""):
     #TODO: use the hazmat section of cryptography to generate a hash.
-    #take the contents from the file named input_filename
-    #hash the contents, 
-    #store the decrypted contents in another file who's name
-    #is stored in output_filename
-    #https://cryptography.io/en/latest/hazmat/primitives/cryptographic-hashes/
-    return None 
+    with open(input_filename, 'rb') as file:
+      raw_file = file.read()
+
+    # hashlid sha256 encrypt
+    hash_object = hashlib.sha256(raw_file)
+    hash = hash_object.hexdigest()
+
+    # save hash to file
+    with open(output_filename, 'wb') as file:
+         file.write(hash.encode())
+         file.close()
+    return hash 
 
 
 ###############################################################################
@@ -99,8 +108,9 @@ def task_3(student_id, input_file_name , output_file_name):
 
 def task_4(student_id, input_file_name , output_file_name):
     #TODO: call the functions needed for task 4 and pass the parameters as needed
+    generate_hash(input_file_name, output_file_name)
     #TODO: update the line below to say "Completed Task 4"
-    print("Task 4 was called... need to update code")
+    print("Completed Task 4")
 
 def task_5(student_id, input_file_name , output_file_name):
     #TODO: call the functions needed for task 5 and pass the parameters as needed
