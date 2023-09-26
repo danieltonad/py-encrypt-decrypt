@@ -1,0 +1,45 @@
+<47742488>, <Jonathan job>
+Do not change the stucture of this file. Paste / type your answers in the sections indicated.
+=============================
+=============================
+Task 0:
+a)
+-- average number of attempts to find a collision over the  1000  runs is  24.441
+
+
+b)
+-- modify the bithday_atack_statistics code to increase the search space from your birthday up to 24 September 2023
+-- run the code and report what the change was in the statistics by copying the last line of the console output below.
+-- average number of attempts to find a collision over the  1000  runs is  10.664
+    not close 
+
+=============================
+=============================
+Task 1:
+
+-- write your ansewer here
+
+=============================
+=============================
+Task 2:
+
+-- Delete the is line and past the console output from the task here.
+
+=============================
+=============================
+Task 3:
+
+-- Delete the is line and past the contents of the text file here.
+
+=============================
+=============================
+Task 4:
+
+-- Delete the is line and past the contents of the text file here.
+
+
+=============================
+=============================
+Task 5:
+
+-- Delete the is line and past the contents of the text file here.
