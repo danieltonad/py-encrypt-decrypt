@@ -24,8 +24,6 @@ def encrypt_file(input_filename, output_filename, key = ""):
     #store the encrypted contents in another file who's name
     #is stored in output_filename
     #https://cryptography.io/en/latest/fernet/
-    key = Fernet.generate_key()
-    print(key)
     return None
 
 
@@ -46,11 +44,11 @@ def decrypt_file(input_filename, output_filename, key = ""):
         
      return decrypted_contents
         
-key = Fernet.generate_key()
+# key = Fernet.generate_key()
         
-input_filename = 'windows_data_encrypted.txt'
-output_filename = 'decrypted_file.txt'
-decrypt_file(input_filename, output_filename,key)
+# input_filename = 'windows_data_encrypted.txt'
+# output_filename = 'decrypted_file.txt'
+# decrypt_file(input_filename, output_filename,key)
 
 
 def generate_hash(input_filename, output_filename, key = ""):
@@ -66,32 +64,11 @@ def generate_hash(input_filename, output_filename, key = ""):
 ###############################################################################
 
 def task_1(student_id,input_file_name , output_file_name):
+    print(student_id, input_file_name, output_file_name)
     # remember, use the command console to run the argument
     # python   crypto_a1_activity.py   40000000  task1   encrypteddata.txt   decrypteddata.txt
     key = generate_mq_key(str(student_id))
-
-    decrypt_file(input_file_name, output_file_name, 4000000)
-    
-    #TODO: call the functions needed for task 1 and pass the parameters as needed
-    def decrypt_file(file_path, key):
-        
-     file_path = (str)
-    key = (int)
-
-        
-    with open(input_file_name, 'rb') as file:
-        encrypted_data = file.read()
-
-    # Convert the key to bytes
-    key_bytes = key.to_bytes((key.bit_length() + 7) // 8, 'big')
-
-    # Decrypt the data using the XOR cipher
-    decrypted_data = bytes([encrypted_byte ^ key_byte for encrypted_byte, key_byte in zip(encrypted_data, itertools.cycle(key_bytes))])
-
-    # Convert the decrypted data to a string
-    decrypted_text = decrypted_data.decode('utf-8')
-
-    return decrypted_text
+    decrypt_file(input_file_name, output_file_name, key)
 
 
 # def task_1():
@@ -103,7 +80,6 @@ def task_1(student_id,input_file_name , output_file_name):
 
 
 # Run task_1
-task_1()
 
     #TODO: update the line below to say "Completed Task 1"
 print("completed task 1")
