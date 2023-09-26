@@ -4,7 +4,7 @@ Do not change the stucture of this file. Paste / type your answers in the sectio
 =============================
 Task 0:
 a)
--- average number of attempts to find a collision over the  1000  runs is  24.441
+-- average number of attempts to find a collision over the  1000  runs is  10.806
 
 
 b)

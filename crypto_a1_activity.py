@@ -24,6 +24,8 @@ def encrypt_file(input_filename, output_filename, key = ""):
     #store the encrypted contents in another file who's name
     #is stored in output_filename
     #https://cryptography.io/en/latest/fernet/
+    key = Fernet.generate_key()
+    print(key)
     return None
 
 
@@ -68,7 +70,7 @@ def task_1(student_id,input_file_name , output_file_name):
     # python   crypto_a1_activity.py   40000000  task1   encrypteddata.txt   decrypteddata.txt
     key = generate_mq_key(str(student_id))
 
-    decrypt_file('/path/to/encrypted_file', output_file_name, 4000000)
+    decrypt_file(input_file_name, output_file_name, 4000000)
     
     #TODO: call the functions needed for task 1 and pass the parameters as needed
     def decrypt_file(file_path, key):
@@ -77,7 +79,7 @@ def task_1(student_id,input_file_name , output_file_name):
     key = (int)
 
         
-    with open('/path/to/encrypted_file', 'rb') as file:
+    with open(input_file_name, 'rb') as file:
         encrypted_data = file.read()
 
     # Convert the key to bytes
@@ -92,12 +94,12 @@ def task_1(student_id,input_file_name , output_file_name):
     return decrypted_text
 
 
-def task_1():
-    # Decrypt the file using the assumed student ID as the key
-    decrypted_text = decrypt_file("windows_data_encryted.txt", 4000000)
+# def task_1():
+#     # Decrypt the file using the assumed student ID as the key
+#     decrypted_text = decrypt_file("windows_data_encryted.txt", 4000000)
 
-    # Print the decrypted text
-    print(decrypted_text)
+#     # Print the decrypted text
+#     print(decrypted_text)
 
 
 # Run task_1
