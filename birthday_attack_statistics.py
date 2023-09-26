@@ -79,7 +79,7 @@ def run_number_of_tests( number_of_runs : int,
 
 def main():
     """starting from here"""
-    date_to_start_from = datetime( 2023, 7, 25 )
+    date_to_start_from = datetime( 2000, 7, 25 )
     date_to_end_at = datetime( 2023, 9, 24 )
     run_number_of_tests( 1000, 1000, date_to_start_from, date_to_end_at )
 

@@ -44,11 +44,6 @@ def decrypt_file(input_filename, output_filename, key = ""):
         
      return decrypted_contents
         
-# key = Fernet.generate_key()
-        
-# input_filename = 'windows_data_encrypted.txt'
-# output_filename = 'decrypted_file.txt'
-# decrypt_file(input_filename, output_filename,key)
 
 
 def generate_hash(input_filename, output_filename, key = ""):
@@ -69,14 +64,6 @@ def task_1(student_id,input_file_name , output_file_name):
     # python   crypto_a1_activity.py   40000000  task1   encrypteddata.txt   decrypteddata.txt
     key = generate_mq_key(str(student_id))
     decrypt_file(input_file_name, output_file_name, key)
-
-
-# def task_1():
-#     # Decrypt the file using the assumed student ID as the key
-#     decrypted_text = decrypt_file("windows_data_encryted.txt", 4000000)
-
-#     # Print the decrypted text
-#     print(decrypted_text)
 
 
 # Run task_1
