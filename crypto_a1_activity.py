@@ -18,13 +18,19 @@ def generate_mq_key(key_string="please don't use the default"):
     key = base64.urlsafe_b64encode(key_string_bytes)
     return key
 
-def encrypt_file(input_filename, output_filename, key = ""):
+def encrypt_file(input_filename, output_filename, key):
     #TODO: use fernet, open the file input_filename
     #read and encrypt the contents of the file
+    fernet = Fernet(key)
+    with open(input_filename, 'rb') as file:
+      raw_file = file.read()
+    encrypted_contents = fernet.encrypt(raw_file)
     #store the encrypted contents in another file who's name
     #is stored in output_filename
+    with open(output_filename, 'wb') as file:
+         file.write(encrypted_contents)
     #https://cryptography.io/en/latest/fernet/
-    return None
+    return encrypted_contents
 
 
 def decrypt_file(input_filename, output_filename, key = ""):
@@ -59,30 +65,37 @@ def generate_hash(input_filename, output_filename, key = ""):
 ###############################################################################
 
 def task_1(student_id,input_file_name , output_file_name):
-    print(student_id, input_file_name, output_file_name)
     # remember, use the command console to run the argument
     # python   crypto_a1_activity.py   40000000  task1   encrypteddata.txt   decrypteddata.txt
     key = generate_mq_key(str(student_id))
     decrypt_file(input_file_name, output_file_name, key)
-
-
-# Run task_1
-
     #TODO: update the line below to say "Completed Task 1"
-print("completed task 1")
+    print("completed task 1")
+
 
 def task_2(student_id, input_file_name , output_file_name):
     # remember, use the command console to run the argument
     # python   crypto_a1_activity.py   YOUR_STUDENT_NUMBER  task2   datafile.encrypted   datafile_enc_decr
     key = generate_mq_key(str(student_id))
     #TODO: call the functions needed for task 2 and pass the parameters as needed
+    encrypt_file(input_file_name, output_file_name, key)
     #TODO: update the line below to say "Completed Task 2"
-    print("Task 2 was called... need to update code")
+    print("Completed Task 2")
 
 def task_3(student_id, input_file_name , output_file_name):
     #TODO: call the functions needed for task 3 and pass the parameters as needed
+    key = generate_mq_key(str(student_id))
+    fernet = Fernet(key)
+    with open(input_file_name, 'rb') as file:
+      raw_file = file.read()
+    encrypted_contents = fernet.encrypt(raw_file)
+    decrypted_contens = fernet.decrypt(encrypted_contents)
+    if raw_file == decrypted_contens:
+        print('Success')
+    else:
+        print('not success')
     #TODO: update the line below to say "Completed Task 3"
-    print("Task 3 was called... need to update code")
+    print("Completed Task 3")
 
 def task_4(student_id, input_file_name , output_file_name):
     #TODO: call the functions needed for task 4 and pass the parameters as needed

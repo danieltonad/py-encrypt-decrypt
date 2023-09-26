@@ -21,13 +21,13 @@ Task 1:
 =============================
 Task 2:
 
--- Delete the is line and past the console output from the task here.
+-- AES in CBC mode with a 128-bit key for encryption, using PKCS7 padding
 
 =============================
 =============================
 Task 3:
 
--- Delete the is line and past the contents of the text file here.
+-- gAAAAABlEswM7NoDTXMg
 
 =============================
 =============================
